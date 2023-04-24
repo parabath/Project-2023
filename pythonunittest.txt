@@ -1,0 +1,32 @@
+
+----------------------------------------eve3.py-------------------------
+def numtest(n:int)->int:
+    if n%2==0:
+        return(print('even'))
+    else:
+        return(print('odd'))
+    
+#result=numtest(4)    
+------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+-----------------------------------unittest-----------------------------
+import unittest
+import eve3
+
+class numtest(unittest.TestCase):
+    def even_num(self):
+        result=eve3.numtest(4)
+        exepected_result='even'
+        self.assertEqaul(result,exepected_result)
+
+if __name__=='__main__':
+    unittest.main()    
+
+------------------------------------------------------------------------ 
