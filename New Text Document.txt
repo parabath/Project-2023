@@ -1,3 +1,13 @@
+peodata.csv" located at "C:\Users\kumar\Downloads\csvf". 
+It then iterates over each line in the file and splits, 
+it into a list of values using the comma (',') as the delimiter.
+The email address is extracted from the fourth element of each line (assuming zero-based indexing) and printed to the console.
+
+However, it seems that you forgot to close the file after reading it. 
+It's generally good practice to close files after you're done with them to free up system resources.
+Here's an updated version of your code that includes closing the file:
+                                                                                              Code
+------------------------------------------------------------------------------------------------------
 f_path="C:\\Users\\kumar\\Downloads\\csvf\\peodata.csv" 
 csv_f=open(f_path,'r')
 
@@ -8,9 +18,8 @@ for x in csv_f:
     mail=finder[3]
     print(mail)
     
-
-
-
-peodata.csv" located at "C:\Users\kumar\Downloads\csvf". It then iterates over each line in the file and splits it into a list of values using the comma (',') as the delimiter. The email address is extracted from the fourth element of each line (assuming zero-based indexing) and printed to the console.
-
-However, it seems that you forgot to close the file after reading it. It's generally good practice to close files after you're done with them to free up system resources. Here's an updated version of your code that includes closing the file:
+------------------------------------------------------------------------------------------------------    
+    
+This code Created by WPPSK. 
+Free to use.
+Share to others!
