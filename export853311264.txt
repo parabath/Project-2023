@@ -1,0 +1,62 @@
+import pygame
+from pygame.locals import *
+
+# Initialize Pygame
+pygame.init()
+
+# Set up the game window
+screen_width, screen_height = 800, 600
+screen = pygame.display.set_mode((screen_width, screen_height))
+pygame.display.set_caption("Animation Example")
+
+# Load player character images
+player_images = [
+    pygame.image.load("cb142/1.png"),
+    pygame.image.load("cb142/2.png"),
+    pygame.image.load("cb142/3.png"),
+    pygame.image.load("cb142/4.png"),
+
+    
+   
+]
+current_frame = 0
+frame_count = len(player_images)
+animation_speed = 5  # Lower values increase animation speed
+
+# Set up the player character
+player_width, player_height = 10, 10
+player_x, player_y = screen_width // 2, screen_height // 2
+player_speed = 5
+
+# Game loop
+running = True
+clock = pygame.time.Clock()
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == QUIT:
+            running = False
+
+    # Handle player movement
+    keys = pygame.key.get_pressed()
+    if keys[K_LEFT] and player_x > 0:
+        player_x -= player_speed
+    if keys[K_RIGHT] and player_x < screen_width - player_width:
+        player_x += player_speed
+    if keys[K_UP] and player_y > 0:
+        player_y -= player_speed
+    if keys[K_DOWN] and player_y < screen_height - player_height:
+        player_y += player_speed
+
+    # Update animation frame
+    current_frame = (current_frame + 1) % frame_count
+
+    # Render the game
+    screen.fill((255, 255, 255))  # Fill the screen with black color
+    screen.blit(player_images[current_frame], (player_x, player_y))  # Draw the player character
+    pygame.display.flip()  # Update the screen
+
+    clock.tick(animation_speed)
+
+# Quit the game
+pygame.quit()
